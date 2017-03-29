@@ -1444,7 +1444,7 @@ export class TransactionContext extends events.EventEmitter {
                          self.cevent = new EventDeployComplete(uuid, tx.chaincodeID);
                          self.waitTime = self.getChain().getDeployWaitTime();
                      } else if ( txType == _fabricProto.Transaction.Type.CHAINCODE_INVOKE) {
-                         self.cevent = new EventInvokeComplete("Tx "+uuid+" complete");
+                         self.cevent = new EventInvokeComplete("Tx "+uuid+" complete " + tx.pb.getTimestamp().seconds.toString());
                          self.waitTime = self.getChain().getInvokeWaitTime();
                      }
                      eh.registerTxEvent(uuid, function (uuid) {
